@@ -8,16 +8,20 @@
 set -e
 
 
-# ====================================
-# NetCDF4-Fortran liberies instalation
-# ------------------------------------
+# =========================================
+# Instalación de biblioteca NetCDF4-Fortran
+# -----------------------------------------
 # Daniel Santiago
 # github/dspelaez
-# ====================================
+# =========================================
 
-## GCC 6.1
-# En este momento estoy usando la versión de `gfortran 8.1` de Homebrew y la
-# versión 8.0 de gcc nativo de apple.
+## GCC
+# MacOS
+#     En este momento estoy usando la versión de `gfortran 8.1` de Homebrew
+#     y la versión 8.0 de gcc nativo de apple.
+#
+# Ubuntu
+#     Funcinó con la versión `gfortran 7.0` y `gcc 7.0` del sistema.
 
 
 ## ruta donde estan los tar.gz
