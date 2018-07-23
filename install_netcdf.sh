@@ -16,9 +16,8 @@ set -e
 # ====================================
 
 ## GCC 6.1
-# En este momento estoy usando la versión de `gfortran 6.1` que viene
-# pre-compilada en la pagina web https://gcc.gnu.org/wiki/GFortranBinaries#MacOS
-# de GNU/GCC para el sistema operativo OS X El Capitán (10.11).
+# En este momento estoy usando la versión de `gfortran 8.1` de Homebrew y la
+# versión 8.0 de gcc nativo de apple.
 
 
 ## ruta donde estan los tar.gz
@@ -27,51 +26,67 @@ cd ${TARDIR}
 echo "Entrando al directorio --->" ${TARDIR}
 echo ""
 
+
+# versiones de las bibliotecas
+ZLTAG="1.2.8"
+H5TAG="1.8.17"
+NCTAG="4.4.1"
+NFTAG="4.4.4"
+
+
+## descargar los codigos fuente de las dependencias
+wget -nc https://zlib.net/fossils/zlib-$ZLTAG.tar.gz
+wget -nc https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-$H5TAG/src/hdf5-$H5TAG.tar 
+wget -nc ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-$NCTAG.tar.gz
+wget -nc ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-fortran-$NFTAG.tar.gz
+
+
 ## ruta donde estan los compiladores
 export CC=/usr/bin/gcc
 export FC=/usr/local/bin/gfortran
 export F90=/usr/local/bin/gfortran
 export F77=/usr/local/bin/gfortran
 
-## Zlib 1.2.8
-tar -xf zlib-1.2.8.tar.gz
-cd zlib-1.2.8/
+
+## Zlib 
+tar -xf zlib-$ZLTAG.tar.gz
+cd zlib-$ZLTAG/
 ZDIR=/usr/local/netcdf
 ./configure --prefix=${ZDIR}
 make -j4
 make install
 cd ..
-rm -rf zlib-1.2.8
+rm -rf zlib-$ZLTAG
 
-## HDF5 1.8.17
-tar -xf hdf5-1.8.17.tar
-cd hdf5-1.8.17/
+## HDF5
+tar -xf hdf5-$H5TAG.tar
+cd hdf5-$H5TAG/
 H5DIR=/usr/local/netcdf
 ./configure --with-zlib=${ZDIR} --prefix=${H5DIR}
 make -j4
 make install
 cd ..
-rm -rf hdf5-1.8.17
+rm -rf hdf5-$H5TAG
 
-## NetCDF4-C 4.4.1
-tar -xf netcdf-4.4.1.tar.gz
-cd netcdf-4.4.1/
+## NetCDF4-C
+tar -xf netcdf-$NCTAG.tar.gz
+cd netcdf-$NCTAG/
 NCDIR=/usr/local/netcdf
 CPPFLAGS=-I${H5DIR}/include LDFLAGS=-L${H5DIR}/lib ./configure --prefix=${NCDIR}
 make -j4
 make install
 cd ..
-rm -rf netcdf-4.4.1
+rm -rf netcdf-$NCTAG
 
 
-## NetCDF4-Fortran 4.4.4
-tar -xf netcdf-fortran-4.4.4.tar.gz
-cd netcdf-fortran-4.4.4/
+## NetCDF4-Fortran
+tar -xf netcdf-fortran-$NFTAG.tar.gz
+cd netcdf-fortran-$NFTAG/
 CPPFLAGS=-I${NCDIR}/include LDFLAGS=-L${NCDIR}/lib ./configure --prefix=${NCDIR}
 make -j4
 make install
 cd ..
-rm -rf netcdf-fortran-4.4.4
+rm -rf netcdf-fortran-$NFTAG
 
 ## mostrar opciones del nc-config
 $NCDIR/bin/nf-config --all
