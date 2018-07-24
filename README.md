@@ -46,7 +46,7 @@ varias versiones del modelo en el mismo computador.
 Una vez haya instalado el modelo hay que agregar al `~/.profile` las rutas donde quedó instalado el modelo. En mi caso es:
 
 ```
-export WW3DIR=$HOME/Models/ww3/5.16:$WW3DIR
+export WW3DIR=$HOME/Models/ww3/5.16
 ```
 
 Debemos modificar los archivos `comp`, `link` y `switch`. En este caso yo quiero instalar el WW3 en serie y con soporte para NetCDF4, entonces primero debo editar el archivo `switch` para incluir dichas especificaciones:
