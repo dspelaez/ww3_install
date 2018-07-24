@@ -3,13 +3,13 @@
 Las bibliotecas de NetCDF4-Fortran tiene como prerequisito las bibliotecas de `zlib`, `HDF5` y `NetCDF4-C`. Lo primero que debemos hacer es instalar el compilador de C y de Fortran, que en el caso de estar usando Linux (Ubuntu) lo más recomendable es instalarlo con:
 
 ```
-sudo apt install gfortran
+sudo apt install gfortran g++ m4
 ```
 
 Para MacOSX lo más recomendable es usar el que viene en el [Homebrew](https://brew.sh/index_es), para eso, simplemente escribimos
 
 ```
-brew install gfortran
+brew install gfortran m4
 ```
 
 El siguiente paso es instalar las dependencias y las bibliotecas como tal, lo cual está automatizado en el script `install_netcdf.sh`. Este script nos preguntará dónde están los compiladores que vamos a usar. En el caso de MacOSX generalmente es `FC=/usr/local/bin/gfortran` y `CC=/usr/bin/gcc`. Si estamos usando Linux, sería `FC=/usr/bin/gfortran` y `CC=/usr/bin/gcc`.
