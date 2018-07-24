@@ -94,3 +94,11 @@ rm -rf netcdf-fortran-$NFTAG
 
 ## mostrar opciones del nc-config
 $NCDIR/bin/nf-config --all
+
+echo ""
+echo ===============================================================================
+echo "Finalmente se debe agregar esto al .profile (o .bashrc o .zshrc)"
+echo "  Linux --\>" export LD_LIBRARY_PATH=$NCDIR/lib:'$LD_LIBRARY_PATH'
+echo "  OSX   --\>" export DYLD_LIBRARY_PATH=$NCDIR/lib:'$DYLD_LIBRARY_PATH'
+echo ===============================================================================
+echo ""
