@@ -30,6 +30,15 @@ cd ${TARDIR}
 echo "Entrando al directorio --->" ${TARDIR}
 echo ""
 
+## ruta donde estan los compiladores
+read -p "C compiler [/usr/bin/gcc]: " CC; CC=${CC:-/usr/bin/gcc}
+read -p "Fortran compiler [/usr/bin/local/gfortran]: " FC; FC=${FC:-/usr/bin/gfortran}
+
+export CC=/usr/bin/gcc
+export FC=/usr/local/bin/gfortran
+export F90=${FC}
+export F77=${FC}
+
 
 # versiones de las bibliotecas
 ZLTAG="1.2.8"
@@ -37,19 +46,11 @@ H5TAG="1.8.17"
 NCTAG="4.4.1"
 NFTAG="4.4.4"
 
-
 ## descargar los codigos fuente de las dependencias
 wget -nc https://zlib.net/fossils/zlib-$ZLTAG.tar.gz
 wget -nc https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-$H5TAG/src/hdf5-$H5TAG.tar 
 wget -nc ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-$NCTAG.tar.gz
 wget -nc ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-fortran-$NFTAG.tar.gz
-
-
-## ruta donde estan los compiladores
-export CC=/usr/bin/gcc
-export FC=/usr/local/bin/gfortran
-export F90=/usr/local/bin/gfortran
-export F77=/usr/local/bin/gfortran
 
 
 ## Zlib 
