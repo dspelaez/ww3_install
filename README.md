@@ -17,13 +17,13 @@ El siguiente paso es instalar las dependencias y las bibliotecas como tal, lo cu
 Al ejecutar este script se instalarán todas las bibliotecas en la ruta `NCDIR=/usr/local/netcdf`, por lo tanto tengo que agregar dicha ruta a la variable de entorno `DYLD_LIBRARY_PATH` en MacOSX y `LD_LIBRARY_PATH` en Linux, es decir, agrego al `.profile` lo siguiente:
 
 ```
-export LD_LIBRARY_PATH=$NCDIR/lib:'$LD_LIBRARY_PATH'
+export LD_LIBRARY_PATH=$NCDIR/lib:$LD_LIBRARY_PATH
 ```
 
 o
 
 ```
-export DYLD_LIBRARY_PATH=$NCDIR/lib:'$DYLD_LIBRARY_PATH'
+export DYLD_LIBRARY_PATH=$NCDIR/lib:$DYLD_LIBRARY_PATH
 ```
 
 dependiendo del caso.
