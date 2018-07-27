@@ -32,7 +32,7 @@ echo ""
 
 ## ruta donde estan los compiladores
 read -p "C compiler [/usr/bin/gcc]: " CC; CC=${CC:-/usr/bin/gcc}
-read -p "Fortran compiler [/usr/bin/local/gfortran]: " FC; FC=${FC:-/usr/bin/local/gfortran}
+read -p "Fortran compiler [/usr/bin/gfortran]: " FC; FC=${FC:-/usr/bin/gfortran}
 
 export CC=/usr/bin/gcc
 export FC=/usr/local/bin/gfortran
