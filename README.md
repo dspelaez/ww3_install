@@ -52,7 +52,7 @@ export WW3DIR=$HOME/Models/ww3/5.16
 Debemos modificar los archivos `comp`, `link` y `switch`. En este caso yo quiero instalar el WW3 en serie y con soporte para NetCDF4, entonces primero debo editar el archivo `switch` para incluir dichas especificaciones:
 
 ```
-cd ${WW3DIR}/bin/
+cd $WW3DIR/bin/
 vim switch
 ```
 
@@ -67,7 +67,7 @@ Adicionalmente para instalar con NetCDF4 necesitamos agregar las siguientes vari
 
 ```
 export WWATCH3_NETCDF=NC4
-export NETCDF_CONFIG=$NCDIR/bin/nc-config
+export NETCDF_CONFIG=$NCDIR/bin/nf-config
 ```
 
 donde generalmente `$NCDIR=/usr/local/netcdf` si usamos el scritpt `install_netcdf.sh`.
