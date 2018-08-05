@@ -17,8 +17,10 @@ brew install gfortran m4
 ```
 
 El siguiente paso es instalar las dependencias y las bibliotecas como tal, lo
-cual está automatizado en el script `install_netcdf.sh`. Este script se descarga
-desde el repositorio y se ejecuta de la siguiente manera:
+cual está automatizado en el script
+[`install_netcdf.sh`](https://raw.githubusercontent.com/dspelaez/install-netcdf-fortran/master/install_netcdf.sh).
+Este script se descarga desde el repositorio y se ejecuta de la siguiente
+manera:
 
 ```
 wget -nc https://raw.githubusercontent.com/dspelaez/install-netcdf-fortran/master/install_netcdf.sh
