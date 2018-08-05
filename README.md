@@ -17,12 +17,19 @@ brew install gfortran m4
 ```
 
 El siguiente paso es instalar las dependencias y las bibliotecas como tal, lo
-cual está automatizado en el script `install_netcdf.sh`. Este script nos
-preguntará dónde están los compiladores que vamos a usar. En el caso de MacOSX
-generalmente es `FC=/usr/local/bin/gfortran` y `CC=/usr/bin/gcc`. Si estamos
-usando Linux, sería `FC=/usr/bin/gfortran` y `CC=/usr/bin/gcc`.
+cual está automatizado en el script `install_netcdf.sh`. Este script se descarga
+desde el repositorio y se ejecuta de la siguiente manera:
 
-Al ejecutar este script se instalarán todas las bibliotecas en la ruta `NCDIR=/usr/local/netcdf`, por lo tanto tengo que agregar dicha ruta a la variable de entorno `DYLD_LIBRARY_PATH` en MacOSX y `LD_LIBRARY_PATH` en Linux, es decir, agrego al `.profile` lo siguiente:
+```
+wget -nc https://raw.githubusercontent.com/dspelaez/install-netcdf-fortran/master/install_netcdf.sh
+sudo CC=gcc FC=gfortran MAINDIR=/usr/local/netcdf ./install_netcdf.sh
+```
+
+donde las variables `CC` y `FC` son los compiladores de C y Fortran,
+respectivamente.  Al ejecutar este script se instalarán todas las bibliotecas en
+la ruta `MAINDIR=/usr/local/netcdf`, por lo tanto tengo que agregar dicha ruta a
+la variable de entorno `DYLD_LIBRARY_PATH` en MacOSX y `LD_LIBRARY_PATH` en
+Linux, es decir, agrego al `.profile` lo siguiente:
 
 ```
 export LD_LIBRARY_PATH=$NCDIR/lib:$LD_LIBRARY_PATH
