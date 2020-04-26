@@ -1,10 +1,16 @@
-### WAVEWATCH III 5.16 Docker Container
+### WAVEWATCH III 6.07 Docker Container
 
-This repo contains a recipe to build the third generation wave model WW3 v5.16
-into the a docker image.
+This repo contains a recipe to build the third generation wave model WAVEWATCH
+III TM inside a docker image.
 
 
 ### Usage
+
+The easiest way is just pull the image from the docker-hub
+
+```
+docker pull dspelaez/ww3-docker:latest
+```
 
 In order to build the image you just have to type:
 
@@ -30,9 +36,3 @@ docker run -it --rm --name=ww3 -v $(pwd):/root/ww3/work ww3-docker /bin/bash
 in this case, `$(pwd)` represents the current directory, i.e., when your input
 data is.
 
-
-### Important note
-
-Source code access can be requested under the Source Code Distribution tab on
-[this page](http://polar.ncep.noaa.gov/waves/wavewatch/). If you already have a
-username and password, you can access the latest version.

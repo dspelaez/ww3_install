@@ -1,5 +1,5 @@
-FROM ubuntu:18.04
-MAINTAINER Daniel Santiago <dspelaez@gmail.com>
+FROM ubuntu:20.04
+MAINTAINER Daniel Santiago <@dspelaez>
 
 # =========================
 # === preration of data ===
